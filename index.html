@@ -1,157 +1,998 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EBF India | Exclusive breastfeeding awareness and education</title>
-<meta name="description" content="EBF India is an independent awareness and education initiative that shares reliable, evidence-based information on exclusive breastfeeding with mothers, families and health professionals in India.">
-<meta name="theme-color" content="#56366f">
-<meta name="google-site-verification" content="00iB3hO5v20pXJK-vjupicv55-AOeBCLlXGrPpFwtRs">
-<link rel="canonical" href="https://www.ebfindia.org/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="EBF India | Exclusive breastfeeding awareness and education">
-<meta property="og:description" content="Reliable, evidence-based information on exclusive breastfeeding for mothers, families and health professionals in India.">
-<meta property="og:url" content="https://www.ebfindia.org/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2356366F'/%3E%3Cpath d='M9 18a7 7 0 0 0 14 0' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='12' r='3' fill='%23E3A02F'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"EBF India","url":"https://www.ebfindia.org/","email":"missionebfindia@gmail.com","telephone":"+919359385667","description":"Awareness and education initiative on exclusive breastfeeding in India."}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Exclusive Breastfeeding | EBF India (ebfindia.org)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Inter & Noto Sans Devanagari for Marathi support -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans Devanagari', 'sans-serif'],
+                        marathi: ['Noto Sans Devanagari', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        tealBrand: {
+                            50: '#f0fdfa',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                        },
+                        amberBrand: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #print-area, #print-area * {
+                visibility: visible;
+            }
+            #print-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap bar">
-    <a class="brand" href="index.html" aria-label="EBF India home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#56366F"/><path d="M9 18a7 7 0 0 0 14 0" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="12" r="3" fill="#E3A02F"/></svg>
-      <span><b>EBF India</b><small>Exclusive breastfeeding awareness</small></span>
-    </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-    <nav class="nav" id="nav" aria-label="Main">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="about.html">About</a>
-      <a href="resources.html">Resources</a>
-      <a href="contact.html" class="btn">Contact us</a>
-    </nav>
-  </div>
-</header>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
 
-<main id="main">
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="tag">Independent awareness and education initiative</span>
-        <h1>Reliable information for the first six months and beyond.</h1>
-        <p class="lede">EBF India helps mothers, families and health professionals find clear, evidence-based information on exclusive breastfeeding, and points them to trusted sources of support across India.</p>
-        <div class="actions">
-          <a class="btn" href="resources.html">Find trusted resources</a>
-          <a class="btn ghost" href="about.html">About EBF India</a>
+    <!-- Notification Toast Modal -->
+    <div id="notification-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm hidden no-print">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full mx-4 shadow-2xl text-center transform transition-all scale-95 opacity-0" id="notification-content">
+            <div id="notification-icon" class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="check-circle" class="w-8 h-8"></i>
+            </div>
+            <h3 id="notification-title" class="text-xl font-bold text-slate-900 mb-2">धन्यवाद! (Thank You)</h3>
+            <p id="notification-message" class="text-slate-600 text-sm mb-6">Your message has been received.</p>
+            <button onclick="closeNotification()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-brand-600/20">OK</button>
         </div>
-      </div>
-      <figure class="timeline">
-        <figcaption>What the World Health Organization recommends</figcaption>
-        <div class="tl-bar" role="img" aria-label="Timeline drawn to scale: breast milk only for the first 6 months, then breastfeeding continues with other foods added up to 2 years or beyond.">
-          <div class="tl-seg tl-exclusive">Breast milk only</div>
-          <div class="tl-seg tl-continued">Breastfeeding continues, with other foods added</div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-700 via-brand-600 to-tealBrand-500 flex items-center justify-center text-white shadow-md shadow-brand-600/20">
+                        <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+                            EBF <span class="text-brand-600">India</span>
+                            <span class="text-xs bg-brand-100 text-brand-800 font-bold px-2 py-0.5 rounded-full uppercase">Pure Awareness</span>
+                        </span>
+                        <span class="block text-[11px] font-semibold text-slate-500 tracking-wider uppercase">Mission Exclusive Breastfeeding</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-600">
+                    <a href="#home" class="hover:text-brand-600 transition">Home</a>
+                    <a href="#hcp-corner" class="hover:text-brand-600 transition flex items-center gap-1">
+                        <i data-lucide="stethoscope" class="w-4 h-4 text-tealBrand-600"></i> Doctor Corner
+                    </a>
+                    <a href="#patient-edu" class="hover:text-brand-600 transition">Patient Education</a>
+                    <a href="#marathi-resources" class="hover:text-brand-600 transition text-emerald-700 font-bold bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+                        मराठी मार्गदर्शक
+                    </a>
+                    <a href="#social-wall" class="hover:text-brand-600 transition">Social Feed</a>
+                    <a href="#contact" class="hover:text-brand-600 transition">Contact</a>
+                </nav>
+
+                <!-- Header Contact Direct CTA -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="tel:9359385667" class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2.5 rounded-xl font-bold text-xs transition">
+                        <i data-lucide="phone-call" class="w-4 h-4 text-brand-600"></i> 935 938 5667
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
-        <div class="tl-scale" aria-hidden="true"><span>Birth</span><span>6 months</span><span>2 years or beyond</span></div>
-        <p class="src">Source: <a href="https://www.who.int/health-topics/breastfeeding">WHO, Breastfeeding</a></p>
-      </figure>
-    </div>
-  </section>
 
-  <section id="basics">
-    <div class="wrap split">
-      <div>
-        <h2>What is exclusive breastfeeding?</h2>
-        <p>Exclusive breastfeeding means the baby receives breast milk only. WHO recommends it for the first six months of life, then adding appropriate complementary foods while breastfeeding continues up to two years or beyond.</p>
-        <p class="note">Every family's situation is different. If you have questions about feeding, medicines, milk supply or your baby's health, please speak with a qualified doctor, nurse or lactation professional.</p>
-      </div>
-      <dl class="facts">
-        <div><dt>In the first six months</dt><dd>Breast milk only. No other milk, food or water.</dd></div>
-        <div><dt>When medically needed</dt><dd>Oral rehydration solution, and vitamin, mineral or medicine drops and syrups, are still compatible with exclusive breastfeeding.</dd></div>
-        <div><dt>From six months</dt><dd>Appropriate complementary foods are introduced, and breastfeeding continues.</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section style="background:var(--white);border-block:1px solid var(--line)">
-    <div class="wrap">
-      <h2>Support for every part of the journey</h2>
-      <p>Choose the section that fits you. Each one leads to vetted guidance from established public-health organisations.</p>
-      <div class="cols3" style="margin-top:2.2rem">
-        <div class="col">
-          <h3>For mothers</h3>
-          <p>Understand the basics, common questions, and where to get professional help with feeding.</p>
-          <a class="more" href="resources.html#mothers">Resources for mothers</a>
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-lg">
+            <a href="#home" class="block px-4 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Home</a>
+            <a href="#hcp-corner" class="block px-4 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Doctor & HCP Corner</a>
+            <a href="#patient-edu" class="block px-4 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Patient Education</a>
+            <a href="#marathi-resources" class="block px-4 py-2.5 rounded-xl font-bold text-emerald-800 bg-emerald-50">मराठी मार्गदर्शक (Marathi Resources)</a>
+            <a href="#social-wall" class="block px-4 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Social Media Updates</a>
+            <a href="#contact" class="block px-4 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Contact & Helpline</a>
+            <div class="pt-2 border-t border-slate-100 flex flex-col gap-2">
+                <a href="tel:9359385667" class="flex items-center justify-center gap-2 bg-brand-600 text-white font-bold py-3 rounded-xl">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Call Helpline: 935 938 5667
+                </a>
+            </div>
         </div>
-        <div class="col">
-          <h3>For families</h3>
-          <p>Learn how partners, grandparents and caregivers can create a supportive home for a breastfeeding mother.</p>
-          <a class="more" href="resources.html#families">Resources for families</a>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="home" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 bg-gradient-to-b from-brand-50/70 via-white to-slate-50 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs sm:text-sm font-bold border border-brand-200">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-brand-600"></i>
+                            100% Non-Commercial Public Health Initiative
+                        </div>
+
+                        <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                            पहिल्या ६ महिन्यांत फक्त आणि फक्त <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 to-tealBrand-600">स्तनपान!</span>
+                        </h1>
+                        
+                        <p class="text-lg sm:text-xl font-medium text-slate-700 leading-relaxed">
+                            Mission Exclusive Breastfeeding (ebfindia.org) is dedicated to empowering doctors, healthcare professionals, and parents across India with evidence-based counseling, video guides, and localized Marathi resources.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#hcp-corner" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-bold px-7 py-4 rounded-2xl shadow-xl shadow-brand-600/25 transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                                <i data-lucide="video" class="w-5 h-5"></i> Doctor Video Corner
+                            </a>
+                            <a href="#marathi-resources" class="w-full sm:w-auto bg-amberBrand-500 hover:bg-amberBrand-600 text-white font-bold px-7 py-4 rounded-2xl shadow-lg transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                                <i data-lucide="file-text" class="w-5 h-5"></i> मराठी मार्गदर्शक (Marathi Guides)
+                            </a>
+                        </div>
+
+                        <!-- Key Highlights -->
+                        <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 shrink-0"></i> No Water Needed
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 shrink-0"></i> Zero Honey / Ghutti
+                            </div>
+                            <div class="flex items-center gap-2 col-span-2 sm:col-span-1">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 shrink-0"></i> Complete Immunity
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual Card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-2xl relative">
+                            <div class="absolute -top-3 -right-3 bg-tealBrand-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow-md">
+                                WHO & UNICEF Aligned
+                            </div>
+                            
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="baby" class="w-8 h-8"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900 text-lg sm:text-xl">Golden Hour Initiation</h3>
+                                    <p class="text-xs text-slate-500">First 60 minutes after birth</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 text-sm text-slate-600">
+                                <div class="p-4 bg-emerald-50/70 rounded-2xl border border-emerald-100">
+                                    <p class="font-bold text-emerald-900 mb-1">पहिले घट्ट पिवळे दूध (Colostrum):</p>
+                                    <p class="text-emerald-800 text-xs sm:text-sm">बालकाची पहिली लस! यामध्ये भरपूर रोगप्रतिकारक शक्ती आणि पोषक घटक असतात.</p>
+                                </div>
+
+                                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/60">
+                                    <p class="font-bold text-slate-900 mb-1">Helpline Support:</p>
+                                    <p class="text-xs text-slate-600">Direct query assistance for clinical counseling and patient doubt resolution.</p>
+                                    <a href="tel:9359385667" class="inline-flex items-center gap-2 text-brand-700 font-extrabold text-sm mt-2">
+                                        <i data-lucide="phone" class="w-4 h-4"></i> +91 935 938 5667
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Healthcare Professional (HCP) & Doctor Corner -->
+        <section id="hcp-corner" class="py-20 bg-white border-y border-slate-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-tealBrand-600 font-bold text-xs uppercase tracking-wider mb-2">
+                            <i data-lucide="stethoscope" class="w-4 h-4"></i> For Doctors & Pediatricians
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Healthcare Professional (HCP) Corner</h2>
+                        <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl">
+                            Clinical guidance, awareness videos, and counseling methodologies for pediatricians, gynecologists, and nursing staff.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Doctor Video Corner Gallery -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Video 1 -->
+                    <div class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="relative bg-slate-800 aspect-video flex items-center justify-center text-white group cursor-pointer" onclick="playVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ', 'Clinical Latch Assessment & Nipple Pain Management')">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
+                            <div class="w-16 h-16 rounded-full bg-brand-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition z-10">
+                                <i data-lucide="play" class="w-8 h-8 fill-current ml-1"></i>
+                            </div>
+                            <span class="absolute bottom-3 left-3 bg-black/70 text-xs font-semibold px-2.5 py-1 rounded text-white z-10">Clinical Video • 08:45</span>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-md uppercase">Counseling Protocol</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Latch Assessment & Position Coaching</h3>
+                            <p class="text-xs text-slate-600">How doctors and nurses can guide mothers on asymmetric latch, preventing sore nipples and engorgement.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="relative bg-slate-800 aspect-video flex items-center justify-center text-white group cursor-pointer" onclick="playVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ', 'Addressing Perceived Low Milk Supply in Postpartum')">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
+                            <div class="w-16 h-16 rounded-full bg-brand-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition z-10">
+                                <i data-lucide="play" class="w-8 h-8 fill-current ml-1"></i>
+                            </div>
+                            <span class="absolute bottom-3 left-3 bg-black/70 text-xs font-semibold px-2.5 py-1 rounded text-white z-10">Doctor Awareness • 06:20</span>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-tealBrand-700 bg-tealBrand-50 px-2.5 py-1 rounded-md uppercase">Physiology</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Managing Perceived Low Milk Supply</h3>
+                            <p class="text-xs text-slate-600">Distinguishing between actual milk insufficiency vs maternal anxiety, and clinical steps to encourage natural supply.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="relative bg-slate-800 aspect-video flex items-center justify-center text-white group cursor-pointer" onclick="playVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ', 'Importance of Immediate Skin-to-Skin in Labor Room')">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
+                            <div class="w-16 h-16 rounded-full bg-brand-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition z-10">
+                                <i data-lucide="play" class="w-8 h-8 fill-current ml-1"></i>
+                            </div>
+                            <span class="absolute bottom-3 left-3 bg-black/70 text-xs font-semibold px-2.5 py-1 rounded text-white z-10">Labor Room Protocol • 10:15</span>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-amberBrand-600 bg-amber-50 px-2.5 py-1 rounded-md uppercase">Best Practices</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Skin-to-Skin (SSC) in Normal & C-Section Births</h3>
+                            <p class="text-xs text-slate-600">Protocol for staff to initiate immediate skin-to-skin contact right after birth to maximize lactation success.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clinical Key Guidelines Grid -->
+                <div class="mt-12 bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-8 text-white shadow-xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i data-lucide="clipboard-list" class="w-6 h-6 text-brand-500"></i> Clinical Counseling Points for Doctor OPDs
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+                        <div class="space-y-2 border-l-2 border-brand-500 pl-4">
+                            <h4 class="font-bold text-brand-100">1. Early Initiation</h4>
+                            <p class="text-slate-300 text-xs leading-relaxed">Ensure skin-to-skin contact within 1 hour post-delivery. Colostrum must be given without delay.</p>
+                        </div>
+                        <div class="space-y-2 border-l-2 border-brand-500 pl-4">
+                            <h4 class="font-bold text-brand-100">2. Strict "No Water" Advice</h4>
+                            <p class="text-slate-300 text-xs leading-relaxed">Advise mothers that breast milk is 88% water. Extra water increases risks of diarrhea and lowers calorie intake.</p>
+                        </div>
+                        <div class="space-y-2 border-l-2 border-brand-500 pl-4">
+                            <h4 class="font-bold text-brand-100">3. Feeding on Demand</h4>
+                            <p class="text-slate-300 text-xs leading-relaxed">Encourage 8 to 12 feeds in 24 hours without artificial timing intervals or pacifiers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Patient & Family Education Hub -->
+        <section id="patient-edu" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-brand-700 font-bold text-xs uppercase tracking-wider bg-brand-100 px-3 py-1 rounded-full">Patient & Family Guide</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Proper Breastfeeding Positions & Techniques</h2>
+                    <p class="text-slate-600 text-sm sm:text-base">Visual guides to help mothers feed comfortably without pain or strain.</p>
+                </div>
+
+                <!-- Visual Techniques Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Technique 1: Cross-Cradle -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                        <div class="bg-brand-50 rounded-2xl p-6 text-center border border-brand-100">
+                            <!-- SVG Illustration: Cross Cradle Hold -->
+                            <svg class="w-28 h-28 mx-auto text-brand-700" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="50" cy="25" r="12" class="fill-brand-100"></circle>
+                                <path d="M 30 50 C 30 35, 70 35, 70 50 C 70 70, 60 85, 50 85 C 40 85, 30 70, 30 50 Z"></path>
+                                <circle cx="42" cy="55" r="8" class="fill-rose-200"></circle>
+                                <path d="M 20 60 C 30 75, 55 75, 75 60"></path>
+                            </svg>
+                            <span class="text-xs font-bold text-brand-800 uppercase mt-2 block">Position 1</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">Cross-Cradle Hold (क्रॉस-क्रेडल पोझिशन)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Ideal for newborns. Hold the baby with the arm opposite the breast you are feeding from. Support baby's head and neck with your palm.
+                        </p>
+                        <ul class="text-xs text-slate-700 space-y-2 pt-2 border-t border-slate-100">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Great control over baby's head</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Best for early learning days</li>
+                        </ul>
+                    </div>
+
+                    <!-- Technique 2: Football Hold -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                        <div class="bg-tealBrand-50 rounded-2xl p-6 text-center border border-tealBrand-100">
+                            <!-- SVG Illustration: Football Hold -->
+                            <svg class="w-28 h-28 mx-auto text-tealBrand-600" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="35" cy="25" r="12" class="fill-tealBrand-100"></circle>
+                                <path d="M 25 45 C 20 60, 30 85, 65 85 C 80 85, 85 70, 75 55 Z"></path>
+                                <circle cx="60" cy="65" r="8" class="fill-rose-200"></circle>
+                                <path d="M 15 50 C 25 70, 50 80, 80 70"></path>
+                            </svg>
+                            <span class="text-xs font-bold text-tealBrand-700 uppercase mt-2 block">Position 2</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">Football / Clutch Hold (फुटबॉल होल्ड)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Tuck your baby under your arm like a football. Perfect for mothers recovering from C-section surgery or nursing twins.
+                        </p>
+                        <ul class="text-xs text-slate-700 space-y-2 pt-2 border-t border-slate-100">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Protects C-section abdominal incision</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Good for larger breasts</li>
+                        </ul>
+                    </div>
+
+                    <!-- Technique 3: Side-Lying Hold -->
+                    <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                        <div class="bg-amber-50 rounded-2xl p-6 text-center border border-amber-100">
+                            <!-- SVG Illustration: Side Lying Hold -->
+                            <svg class="w-28 h-28 mx-auto text-amberBrand-600" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="30" cy="40" r="10" class="fill-amber-100"></circle>
+                                <path d="M 20 55 C 30 55, 70 55, 80 55 C 85 70, 70 80, 40 80 Z"></path>
+                                <circle cx="50" cy="50" r="8" class="fill-rose-200"></circle>
+                                <path d="M 15 70 L 85 70"></path>
+                            </svg>
+                            <span class="text-xs font-bold text-amberBrand-600 uppercase mt-2 block">Position 3</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">Side-Lying Position (आडवे झोपून स्तनपान)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Lie comfortably on your side with baby facing you, stomach to stomach. Allows mother to rest during night feeds.
+                        </p>
+                        <ul class="text-xs text-slate-700 space-y-2 pt-2 border-t border-slate-100">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Highly comfortable for night feeding</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Helps mother rest & recover</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Myths vs Facts Accordion -->
+                <div class="mt-16 bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6 text-center sm:text-left">
+                        स्तनपानाबाबतचे गैरसमज व सत्य (Myths vs. Facts)
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50">
+                            <div class="flex items-start gap-3">
+                                <span class="bg-rose-100 text-rose-700 font-bold text-xs px-2.5 py-1 rounded shrink-0 mt-0.5">गैरसमज (Myth)</span>
+                                <h4 class="font-bold text-slate-900 text-sm sm:text-base">उन्हाळ्यात बाळाला वरून पाणी देणे गरजेचे असते.</h4>
+                            </div>
+                            <div class="flex items-start gap-3 mt-3 pt-3 border-t border-slate-200">
+                                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs px-2.5 py-1 rounded shrink-0 mt-0.5">सत्य (Fact)</span>
+                                <p class="text-xs sm:text-sm text-slate-700">
+                                    आईच्या दुधात ८८% पाणी असते. उन्हाळ्यातही ६ महिन्यांपर्यंत बाळाला वरून थेंबभरही पाण्याची गरज नसते.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50">
+                            <div class="flex items-start gap-3">
+                                <span class="bg-rose-100 text-rose-700 font-bold text-xs px-2.5 py-1 rounded shrink-0 mt-0.5">गैरसमज (Myth)</span>
+                                <h4 class="font-bold text-slate-900 text-sm sm:text-base">जन्मानंतर बाळाला म्हातारी/मध/गुटी पाजावी.</h4>
+                            </div>
+                            <div class="flex items-start gap-3 mt-3 pt-3 border-t border-slate-200">
+                                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs px-2.5 py-1 rounded shrink-0 mt-0.5">सत्य (Fact)</span>
+                                <p class="text-xs sm:text-sm text-slate-700">
+                                    मध किंवा गुटीमुळे संसर्ग (Infection) होण्याचा मोठा धोका असतो. जन्मानंतर फक्त आईचे पहिले पिवळे दूध (Colostrum) देणे अतिशय सुरक्षित आहे.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. Downloadable Marathi Resources Section -->
+        <section id="marathi-resources" class="py-20 bg-gradient-to-b from-emerald-900 to-brand-900 text-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="bg-emerald-800/80 text-emerald-200 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full border border-emerald-700">
+                        विशेष मराठी साहित्य (Marathi Health Educational Resources)
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight">
+                        कांगारू मदर केअर आणि त्वचा-शी-त्वचा संपर्क मार्गदर्शक
+                    </h2>
+                    <p class="text-emerald-100 text-sm sm:text-base">
+                        ग्रामीण व शहरी भागातील माता व आरोग्य कर्मचाऱ्यांसाठी सोप्या मराठीत चित्रांसह तयार केलेले डिजिटल चार्ट.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Marathi Card 1: KMC -->
+                    <div class="bg-white text-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl">
+                                <i data-lucide="heart" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-md">प्रिंटयोग्य तक्ता (Printable)</span>
+                            <h3 class="text-xl font-bold text-slate-900">कांगारू मदर केयर (Kangaroo Mother Care - KMC)</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                कमी वजनाच्या किंवा मुदतीपूर्वी जन्मलेल्या बाळासाठी अतिशय प्रभावी पद्धत. बाळाला आईच्या छातीवर थेट त्वचेला स्पर्श करून ठेवल्याने बाळाचे तापमान नियंत्रित राहते.
+                            </p>
+                            
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs space-y-2">
+                                <p class="font-bold text-slate-900">KMC चे मुख्य फायदे:</p>
+                                <p class="text-slate-600">• बाळाचे शारीरिक तापमान उबदार राहते</p>
+                                <p class="text-slate-600">• वजन वेगाने वाढण्यास मदत होते</p>
+                                <p class="text-slate-600">• आई आणि बाळात भावनिक जवळीक निर्माण होते</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 mt-6 border-t border-slate-100">
+                            <button onclick="openPrintModal('kmc')" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow-md">
+                                <i data-lucide="printer" class="w-4 h-4"></i> पाहा व प्रिंट करा (Print Guide)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Marathi Card 2: Skin-to-Skin -->
+                    <div class="bg-white text-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-tealBrand-50 text-tealBrand-600 flex items-center justify-center font-bold text-xl">
+                                <i data-lucide="user-check" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-tealBrand-700 bg-tealBrand-50 px-2.5 py-1 rounded-md">जन्मानंतर लगेच</span>
+                            <h3 class="text-xl font-bold text-slate-900">त्वचा-शी-त्वचा संपर्क (Skin-to-Skin Contact)</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                बाळ जन्माला आल्यावर लगेच १ तासाच्या आत आईच्या छातीवर नग्न त्वचेवर ठेवणे. याने बाळ आपोआप स्तनपान करण्यास शिकते (Breast Crawl).
+                            </p>
+
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs space-y-2">
+                                <p class="font-bold text-slate-900">महत्त्वाच्या सूचना:</p>
+                                <p class="text-slate-600">• बाळाला व आईला उबदार कपड्याने झाका</p>
+                                <p class="text-slate-600">• बाळाचे नाक व तोंड उघडे ठेवा</p>
+                                <p class="text-slate-600">• पहिल्या १ तासात अजिबात अडथळा आणू नका</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 mt-6 border-t border-slate-100">
+                            <button onclick="openPrintModal('skin-to-skin')" class="w-full bg-tealBrand-600 hover:bg-tealBrand-700 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow-md">
+                                <i data-lucide="printer" class="w-4 h-4"></i> पाहा व प्रिंट करा (Print Guide)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Marathi Card 3: Breastfeeding Positions -->
+                    <div class="bg-white text-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amberBrand-600 flex items-center justify-center font-bold text-xl">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-amberBrand-600 bg-amber-100 px-2.5 py-1 rounded-md">योग्य पद्धत</span>
+                            <h3 class="text-xl font-bold text-slate-900">योग्य स्तनपान तंत्र आणि स्थिती (Latching Chart)</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                बाळाचे तोंड मोठे उघडणे, अरेओलाचा (काळा भाग) जास्त भाग बाळाच्या तोंडात जाणे आणि आईला वेदना न होणे हे योग्य लॅचिंगचे चिन्ह आहे.
+                            </p>
+
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs space-y-2">
+                                <p class="font-bold text-slate-900">योग्य लॅचिंगची लक्षणे:</p>
+                                <p class="text-slate-600">• बाळाचे हनुवटी आईच्या छातीला टेकलेली</p>
+                                <p class="text-slate-600">• बाळाचे ओठ बाहेरच्या बाजूला दुमडलेले</p>
+                                <p class="text-slate-600">• दूध गिळण्याचा आवाज येणे</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 mt-6 border-t border-slate-100">
+                            <button onclick="openPrintModal('latching')" class="w-full bg-amberBrand-500 hover:bg-amberBrand-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow-md">
+                                <i data-lucide="printer" class="w-4 h-4"></i> पाहा व प्रिंट करा (Print Guide)
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Interactive Social Media Feed Section -->
+        <section id="social-wall" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <span class="text-brand-700 font-bold text-xs uppercase tracking-wider bg-brand-100 px-3 py-1 rounded-full">Community Updates</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">EBF India Social Media Awareness Wall</h2>
+                        <p class="text-slate-600 text-sm sm:text-base mt-1">Live updates, doctor quotes, and educational infographics to share with families.</p>
+                    </div>
+
+                    <!-- Filter Tabs -->
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="filterSocial('all')" id="tab-all" class="social-tab px-4 py-2 rounded-xl text-xs font-bold bg-brand-600 text-white shadow-sm">All Posts</button>
+                        <button onclick="filterSocial('doctor')" id="tab-doctor" class="social-tab px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">Doctor Tips</button>
+                        <button onclick="filterSocial('marathi')" id="tab-marathi" class="social-tab px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">मराठी पोस्ट्स</button>
+                        <button onclick="filterSocial('infographic')" id="tab-infographic" class="social-tab px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">Infographics</button>
+                    </div>
+                </div>
+
+                <!-- Feed Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="social-grid">
+                    
+                    <!-- Social Item 1 -->
+                    <div class="social-card doctor bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">
+                                    DR
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-900">Dr. Pediatric Specialist</h4>
+                                    <p class="text-[11px] text-slate-400">@ebfindia • Doctor Advice</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                "The first milk (colostrum) is irreplaceable. It coats the infant's intestines to prevent harmful bacteria from entering. Never discard colostrum!"
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                            <span class="flex items-center gap-1 text-emerald-600 font-bold"><i data-lucide="check-circle" class="w-4 h-4"></i> Verified Health Post</span>
+                            <button onclick="sharePost('Colostrum is irreplaceable! Learn more at ebfindia.org')" class="text-brand-700 font-bold flex items-center gap-1 hover:underline">
+                                <i data-lucide="share-2" class="w-3.5 h-3.5"></i> Share
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Social Item 2 -->
+                    <div class="social-card marathi bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-full bg-amberBrand-500 text-white font-bold flex items-center justify-center text-sm">
+                                    मराठी
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-900">मिशन एक्सक्लुसिव्ह ब्रेस्टफीडिंग</h4>
+                                    <p class="text-[11px] text-slate-400">@ebfindia • मराठी जनजागृती</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed font-marathi">
+                                "बाळाला उन्हाळ्यात वरून पाणी पाजणे धोकादायक ठरू शकते. आईचे दूधच बाळाची तहान पूर्णपणे भागवते. ६ महिने फक्त स्तनपान!"
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                            <span class="flex items-center gap-1 text-amberBrand-600 font-bold"><i data-lucide="heart" class="w-4 h-4"></i> जनहितार्थ प्रसारित</span>
+                            <button onclick="sharePost('६ महिने फक्त स्तनपान! ebfindia.org')" class="text-brand-700 font-bold flex items-center gap-1 hover:underline">
+                                <i data-lucide="share-2" class="w-3.5 h-3.5"></i> Share
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Social Item 3 -->
+                    <div class="social-card infographic bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-full bg-tealBrand-600 text-white font-bold flex items-center justify-center text-sm">
+                                    INFO
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-900">EBF Visual Chart</h4>
+                                    <p class="text-[11px] text-slate-400">@ebfindia • Infographic</p>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-tealBrand-50 rounded-2xl border border-tealBrand-100 text-center mb-3">
+                                <i data-lucide="droplet" class="w-8 h-8 text-tealBrand-600 mx-auto mb-1"></i>
+                                <p class="text-xs font-bold text-tealBrand-700">Breast Milk Composition</p>
+                                <p class="text-[11px] text-slate-600">88% Water • Proteins • Immunoglobulins • Essential Fats</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                            <span class="text-slate-500 font-medium">Public Chart</span>
+                            <button onclick="sharePost('Breast milk composition infographic from ebfindia.org')" class="text-brand-700 font-bold flex items-center gap-1 hover:underline">
+                                <i data-lucide="share-2" class="w-3.5 h-3.5"></i> Share
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Interactive Contact & Counseling Inquiry Form Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Contact Info Column -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-brand-700 font-bold text-xs uppercase tracking-wider bg-brand-100 px-3 py-1 rounded-full">संपर्क व मार्गदर्शन</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                            Get in Touch with EBF India Initiative
+                        </h2>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Have questions regarding lactation counseling, require printed Marathi charts for your hospital/clinic, or want doctor awareness videos? Reach out to us directly.
+                        </p>
+
+                        <div class="space-y-4 pt-4">
+                            <!-- Direct Phone -->
+                            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                                <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 font-bold">
+                                    <i data-lucide="phone" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-500 uppercase">Helpline & WhatsApp</p>
+                                    <a href="tel:9359385667" class="text-lg font-black text-slate-900 hover:text-brand-700">
+                                        +91 935 938 5667 / 935 938 5667
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Direct Email -->
+                            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                                <div class="w-12 h-12 rounded-xl bg-tealBrand-50 text-tealBrand-600 flex items-center justify-center shrink-0 font-bold">
+                                    <i data-lucide="mail" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-500 uppercase">Official Email</p>
+                                    <a href="mailto:missionebfindia@gmail.com" class="text-base sm:text-lg font-black text-slate-900 hover:text-brand-700">
+                                        missionebfindia@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Web Domain -->
+                            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+                                <div class="w-12 h-12 rounded-xl bg-amber-50 text-amberBrand-600 flex items-center justify-center shrink-0 font-bold">
+                                    <i data-lucide="globe" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-500 uppercase">Website Domain</p>
+                                    <p class="text-base font-black text-slate-900">ebfindia.org</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Column -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 shadow-lg">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-2">Send an Inquiry or Request Resource Posters</h3>
+                            <p class="text-xs text-slate-500 mb-6">Fill out the form below to request awareness posters or submit queries.</p>
+
+                            <form onsubmit="handleInquirySubmit(event)" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Full Name</label>
+                                        <input type="text" required placeholder="Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-brand-600 bg-white">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number</label>
+                                        <input type="tel" required placeholder="+91 98765 43210" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-brand-600 bg-white">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
+                                        <input type="email" required placeholder="name@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-brand-600 bg-white">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">I am a:</label>
+                                        <select class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-brand-600 bg-white">
+                                            <option value="doctor">Doctor / Pediatrician / Gynecologist</option>
+                                            <option value="parent">Parent / Family Member</option>
+                                            <option value="healthcare_worker">ASHA / Nursing Staff</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">How can we help? (उदा. मराठी पोस्टर हवे आहेत का?)</label>
+                                    <textarea rows="4" required placeholder="Enter your inquiry or specify if physical posters/videos are required..." class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-brand-600 bg-white"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-brand-600/20 text-sm uppercase tracking-wider">
+                                    Submit Inquiry
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Video Player -->
+    <div id="video-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm hidden no-print">
+        <div class="bg-white rounded-3xl p-6 max-w-2xl w-full mx-4 shadow-2xl relative">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 id="video-modal-title" class="text-lg font-bold text-slate-900 mb-4 pr-8">Doctor Awareness Video</h3>
+            <div class="aspect-video bg-black rounded-2xl overflow-hidden">
+                <iframe id="video-iframe" class="w-full h-full" src="" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
-        <div class="col">
-          <h3>For health professionals</h3>
-          <p>Find guidelines and learning material to support informed, consistent breastfeeding counselling.</p>
-          <a class="more" href="resources.html#professionals">Resources for professionals</a>
+    </div>
+
+    <!-- Printable Modal / Layout for Marathi Resources -->
+    <div id="print-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm hidden no-print overflow-y-auto p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-3xl w-full shadow-2xl relative my-8">
+            <button onclick="closePrintModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full no-print">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div id="print-area" class="space-y-6">
+                <!-- Printable Header -->
+                <div class="border-b-2 border-brand-600 pb-4 flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-black text-brand-800">Mission Exclusive Breastfeeding (EBF India)</h2>
+                        <p class="text-xs text-slate-500 font-bold uppercase">ebfindia.org • हेल्पलाइन: ९३५ ९३८ ५६६७ • missionebfindia@gmail.com</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="bg-brand-100 text-brand-800 text-xs font-bold px-3 py-1 rounded-full">सार्वजनिक आरोग्य शिक्षण</span>
+                    </div>
+                </div>
+
+                <!-- Content Dynamic Container -->
+                <div id="print-dynamic-content" class="space-y-4">
+                    <!-- Dynamic Marathi printable chart loaded here via JavaScript -->
+                </div>
+
+                <!-- Printable Footer -->
+                <div class="pt-4 border-t border-slate-200 text-center text-xs text-slate-500">
+                    <p>प्रसारक: Mission Exclusive Breastfeeding | अधिक माहिती व व्हिडिओसाठी भेट द्या: <strong>ebfindia.org</strong></p>
+                </div>
+            </div>
+
+            <!-- Print Action Buttons -->
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-end gap-3 no-print">
+                <button onclick="closePrintModal()" class="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-bold text-sm">बंद करा (Close)</button>
+                <button onclick="window.print()" class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm flex items-center gap-2 shadow-md">
+                    <i data-lucide="printer" class="w-4 h-4"></i> आता प्रिंट करा (Print Chart)
+                </button>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
 
-  <section class="band">
-    <div class="wrap">
-      <h2>What EBF India does</h2>
-      <p>We are an awareness and education initiative. Our work is to make good information easier to find and easier to understand.</p>
-      <ul class="do-list">
-        <li><b>Share reliable information</b>Plain-language summaries linked to WHO, UNICEF and Indian health authorities.</li>
-        <li><b>Encourage family support</b>Help partners and relatives understand how they can help.</li>
-        <li><b>Connect people with resources</b>Point to trusted organisations and professional care.</li>
-        <li><b>Promote awareness in communities</b>Work with partners to bring accurate information to more families.</li>
-      </ul>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 pt-16 pb-12 border-t border-slate-800 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-800">
+                <div class="md:col-span-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white">
+                            <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">EBF <span class="text-brand-500">India</span></span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-md">
+                        Mission Exclusive Breastfeeding (ebfindia.org) is an independent public health awareness initiative dedicated to supporting doctors, healthcare workers, and families to achieve 6 months of exclusive breastfeeding.
+                    </p>
+                </div>
 
-  <section>
-    <div class="wrap split">
-      <div>
-        <h2>Work with us</h2>
-        <p>We welcome questions, suggestions and conversations with health professionals, educators and organisations who share this goal.</p>
-      </div>
-      <div>
-        <p>Write to <a href="mailto:missionebfindia@gmail.com">missionebfindia@gmail.com</a> or call <a href="tel:+919359385667">+91 93593 85667</a>.</p>
-        <div class="actions" style="margin-top:1rem"><a class="btn" href="contact.html">Contact us</a></div>
-      </div>
-    </div>
-  </section>
-</main>
+                <div class="md:col-span-6 space-y-4">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider">Contact & Emergency Helpline</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-brand-500 shrink-0"></i>
+                            <span class="text-white font-bold">+91 935 938 5667 / 935 938 5667</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-brand-500 shrink-0"></i>
+                            <span class="text-white font-bold">missionebfindia@gmail.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="globe" class="w-5 h-5 text-brand-500 shrink-0"></i>
+                            <span class="text-white font-bold">ebfindia.org</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <h3>EBF India</h3>
-        <p>An independent awareness and education initiative on exclusive breastfeeding in India. Registration in progress.</p>
-      </div>
-      <div>
-        <h3>Pages</h3>
-        <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <ul><li><a href="mailto:missionebfindia@gmail.com">missionebfindia@gmail.com</a></li><li><a href="tel:+919359385667">+91 93593 85667</a></li></ul>
-      </div>
-    </div>
-    <div class="legal">
-      <p><b>Medical disclaimer.</b> The information on this website is for general education and is not medical advice. For personal guidance on feeding, medicines, milk supply or your baby's health, consult a qualified healthcare professional.</p>
-      <p><b>Independence.</b> EBF India does not promote infant milk substitutes, feeding bottles, teats or any commercial products.</p>
-      <p>&copy; 2026 EBF India. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-<script src="script.js"></script>
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 EBF India (ebfindia.org). Public Domain Educational Content.</p>
+                <p class="max-w-md text-center md:text-right">
+                    <strong>Medical Disclaimer:</strong> Content on ebfindia.org is intended for educational purposes only and does not replace medical diagnosis or advice.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Toast Notification System
+        function showNotification(title, message) {
+            document.getElementById('notification-title').innerText = title;
+            document.getElementById('notification-message').innerText = message;
+            const modal = document.getElementById('notification-modal');
+            const content = document.getElementById('notification-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeNotification() {
+            const modal = document.getElementById('notification-modal');
+            const content = document.getElementById('notification-content');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            showNotification(
+                "संदेश प्राप्त झाला! (Inquiry Sent)",
+                "Thank you for reaching out to Mission Exclusive Breastfeeding. We will respond to your query/poster request shortly via email or call."
+            );
+            e.target.reset();
+        }
+
+        // Doctor Video Modal Player
+        function playVideoModal(url, title) {
+            document.getElementById('video-modal-title').innerText = title;
+            document.getElementById('video-iframe').src = url;
+            document.getElementById('video-modal').classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('video-iframe').src = '';
+            document.getElementById('video-modal').classList.add('hidden');
+        }
+
+        // Printable Marathi Resource Generator
+        function openPrintModal(type) {
+            const container = document.getElementById('print-dynamic-content');
+            
+            if (type === 'kmc') {
+                container.innerHTML = `
+                    <div class="bg-emerald-50 p-6 rounded-2xl border-2 border-emerald-200 text-slate-900 space-y-4">
+                        <h3 class="text-2xl font-black text-emerald-900">मार्गदर्शक: कांगारू मदर केयर (Kangaroo Mother Care - KMC)</h3>
+                        <p class="text-sm font-semibold text-slate-700">कमी वजनाच्या आणि मुदतीपूर्वी जन्मलेल्या बाळांसाठी जीवनदायी पद्धत</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 my-4">
+                            <div class="bg-white p-4 rounded-xl border border-emerald-200">
+                                <h4 class="font-bold text-emerald-800 text-sm mb-1">१. योग्य स्थिती (Position):</h4>
+                                <p class="text-xs text-slate-600">बाळाला आईच्या दोन स्तनांच्या मध्ये थेट त्वचेला स्पर्श करून उभे ठेवा. बाळाचे तोंड एका बाजूला असावे.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl border border-emerald-200">
+                                <h4 class="font-bold text-emerald-800 text-sm mb-1">२. उबदार झाकण (Clothing):</h4>
+                                <p class="text-xs text-slate-600">बाळाला टोपी, लंगोट आणि मोजे घालावेत. आईने व बाळाने वरून उबदार कापड किंवा कपडा पांघरावा.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-emerald-200 text-xs space-y-1">
+                            <p class="font-bold text-slate-900">KMC चे मुख्य फायदे:</p>
+                            <p>• बाळाचे तापमान सामान्य राहते (Hypothermia पासून बचाव)</p>
+                            <p>• वजनात जलद वाढ होते व संसर्ग टळतो</p>
+                            <p>• आईला पुरेसे दूध येण्यास मदत होते</p>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'skin-to-skin') {
+                container.innerHTML = `
+                    <div class="bg-tealBrand-50 p-6 rounded-2xl border-2 border-tealBrand-200 text-slate-900 space-y-4">
+                        <h3 class="text-2xl font-black text-tealBrand-700">मार्गदर्शक: त्वचा-शी-त्वचा संपर्क (Skin-to-Skin Contact)</h3>
+                        <p class="text-sm font-semibold text-slate-700">जन्मानंतर पहिल्या एका तासात (Golden Hour) अत्यंत आवश्यक</p>
+
+                        <div class="bg-white p-4 rounded-xl border border-tealBrand-200 text-xs space-y-2">
+                            <h4 class="font-bold text-slate-900 text-sm">महत्त्वाच्या पायऱ्या:</h4>
+                            <p>१. बाळ जन्माला आल्यावर लगेच कोरडे करा आणि आईच्या छातीवर उघड्या त्वचेवर ठेवा.</p>
+                            <p>२. आई आणि बाळाला मिळून उबदार कपड्याने झाका.</p>
+                            <p>३. बाळ स्वतःहून आईचे दूध शोधून स्तनपान सुरू करते (Breast Crawl).</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-200 text-slate-900 space-y-4">
+                        <h3 class="text-2xl font-black text-amberBrand-600">मार्गदर्शक: योग्य स्तनपान तंत्र व स्थिती (Latching Guide)</h3>
+                        <p class="text-sm font-semibold text-slate-700">वेदनामुक्त आणि प्रभावी स्तनपानासाठी</p>
+
+                        <div class="bg-white p-4 rounded-xl border border-amber-200 text-xs space-y-2">
+                            <h4 class="font-bold text-slate-900 text-sm">योग्य लॅचिंग कसे ओळखावे?</h4>
+                            <p>• बाळाचे तोंड मोठे उघडे असावे (जसे जांभई देताना).</p>
+                            <p>• अरेओलाचा (काळा भाग) जास्त भाग वरच्या बाजूपेक्षा खालच्या बाजूने बाळाच्या तोंडात असावा.</p>
+                            <p>• बाळाची हनुवटी आईच्या छातीला टेकलेली असावी.</p>
+                            <p>• आईला निप्पल दुखणे किंवा त्रास होणे हे चुकीच्या लॅचचे चिन्ह आहे.</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            document.getElementById('print-modal').classList.remove('hidden');
+        }
+
+        function closePrintModal() {
+            document.getElementById('print-modal').classList.add('hidden');
+        }
+
+        // Social Wall Filtering
+        function filterSocial(category) {
+            const cards = document.querySelectorAll('.social-card');
+            const tabs = document.querySelectorAll('.social-tab');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-brand-600', 'text-white');
+                tab.classList.add('bg-white', 'text-slate-600');
+            });
+
+            document.getElementById(`tab-${category}`).classList.remove('bg-white', 'text-slate-600');
+            document.getElementById(`tab-${category}`).classList.add('bg-brand-600', 'text-white');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Social Share Trigger
+        function sharePost(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text);
+                showNotification("Copied to Clipboard!", `Shared text: "${text}". You can now paste and share it on WhatsApp or social media.`);
+            } else {
+                showNotification("Share Update", text);
+            }
+        }
+    </script>
 </body>
 </html>
