@@ -1,944 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="00iB3hO5v20pXJK-vjupicv55-AOeBCLlXGrPpFwtRs" />
-    <title>EBF India | Supporting Exclusive Breastfeeding</title>
-
-    <meta name="description"
-        content="EBF India promotes awareness, education and support for exclusive breastfeeding in India.">
-
-    <meta name="theme-color" content="#56366f">
-
-    <style>
-        :root {
-            --purple: #56366f;
-            --purple-dark: #382448;
-            --purple-light: #f5eff8;
-            --green: #47765c;
-            --green-light: #edf5ef;
-            --cream: #fffdf9;
-            --text: #37343b;
-            --muted: #6d6872;
-            --white: #ffffff;
-            --border: #e9e3eb;
-            --shadow: 0 12px 35px rgba(56, 36, 72, 0.08);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: var(--text);
-            background: var(--cream);
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        .container {
-            width: min(1120px, 90%);
-            margin: 0 auto;
-        }
-
-        /* Header */
-
-        header {
-            background: var(--white);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-inner {
-            min-height: 82px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .brand {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand-icon {
-            width: 48px;
-            height: 48px;
-            display: grid;
-            place-items: center;
-            background: var(--purple-light);
-            color: var(--purple);
-            border-radius: 15px;
-            font-size: 27px;
-        }
-
-        .brand-name {
-            display: block;
-            color: var(--purple);
-            font-size: 25px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .brand-tagline {
-            display: block;
-            color: var(--muted);
-            font-size: 11px;
-            letter-spacing: 1px;
-            margin-top: 4px;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
-        }
-
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        nav a:hover {
-            color: var(--green);
-        }
-
-        .nav-button {
-            background: var(--purple);
-            color: var(--white);
-            padding: 11px 17px;
-            border-radius: 7px;
-        }
-
-        nav a.nav-button:hover {
-            background: var(--purple-dark);
-            color: var(--white);
-        }
-
-        /* Hero */
-
-        .hero {
-            background:
-                radial-gradient(circle at 90% 20%, #e4efdf 0, transparent 28%),
-                linear-gradient(125deg, #f6eff9 0%, #fffdf9 75%);
-            padding: 90px 0;
-            overflow: hidden;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            color: var(--green);
-            background: var(--green-light);
-            border-radius: 30px;
-            padding: 7px 14px;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            color: var(--purple-dark);
-            font-size: clamp(38px, 5vw, 60px);
-            line-height: 1.12;
-            letter-spacing: -1.5px;
-            margin: 24px 0;
-        }
-
-        .hero p {
-            max-width: 600px;
-            color: var(--muted);
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        .button-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 14px 22px;
-            border-radius: 8px;
-            background: var(--purple);
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .button:hover {
-            background: var(--purple-dark);
-            transform: translateY(-2px);
-        }
-
-        .button-outline {
-            background: transparent;
-            color: var(--purple);
-            border: 1px solid #cfc0d9;
-        }
-
-        .button-outline:hover {
-            background: var(--purple-light);
-            color: var(--purple);
-        }
-
-        .hero-art {
-            min-height: 350px;
-            display: grid;
-            place-items: center;
-        }
-
-        .art-circle {
-            width: min(340px, 100%);
-            aspect-ratio: 1;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #e9dcef, #dcebdc);
-            display: grid;
-            place-items: center;
-            position: relative;
-        }
-
-        .art-inner {
-            width: 78%;
-            height: 78%;
-            border: 2px solid rgba(86, 54, 111, 0.13);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            padding: 25px;
-        }
-
-        .art-symbol {
-            font-size: 86px;
-            line-height: 1.2;
-        }
-
-        .art-caption {
-            color: var(--purple-dark);
-            font-weight: 800;
-            font-size: 20px;
-        }
-
-        .floating-note {
-            position: absolute;
-            background: var(--white);
-            border-radius: 12px;
-            padding: 13px 17px;
-            box-shadow: var(--shadow);
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--green);
-        }
-
-        .note-one {
-            top: 35px;
-            right: -15px;
-        }
-
-        .note-two {
-            bottom: 35px;
-            left: -25px;
-        }
-
-        /* Shared sections */
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-heading {
-            max-width: 720px;
-            margin: 0 auto 42px;
-            text-align: center;
-        }
-
-        .section-heading h2 {
-            margin: 14px 0;
-            color: var(--purple-dark);
-            font-size: clamp(29px, 4vw, 40px);
-            line-height: 1.25;
-        }
-
-        .section-heading p {
-            color: var(--muted);
-            margin: 0;
-            font-size: 16px;
-        }
-
-        /* About */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 55px;
-            align-items: center;
-        }
-
-        .about-panel {
-            background: var(--purple-light);
-            border-radius: 20px;
-            padding: 38px;
-        }
-
-        .about-panel .big-symbol {
-            font-size: 48px;
-        }
-
-        .about-panel h3 {
-            color: var(--purple-dark);
-            font-size: 25px;
-            line-height: 1.35;
-        }
-
-        .about-panel p,
-        .about-copy p {
-            color: var(--muted);
-        }
-
-        .about-copy h2 {
-            font-size: 36px;
-            line-height: 1.25;
-            color: var(--purple-dark);
-            margin: 15px 0;
-        }
-
-        .check-list {
-            padding: 0;
-            list-style: none;
-        }
-
-        .check-list li {
-            margin: 12px 0;
-        }
-
-        .check-list li::before {
-            content: "✓";
-            display: inline-grid;
-            place-items: center;
-            width: 24px;
-            height: 24px;
-            background: var(--green-light);
-            color: var(--green);
-            border-radius: 50%;
-            margin-right: 10px;
-            font-weight: 800;
-        }
-
-        /* Information banner */
-
-        .guidance {
-            background: var(--green-light);
-        }
-
-        .guidance-box {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .guidance-box h2 {
-            color: var(--purple-dark);
-            font-size: 34px;
-            line-height: 1.3;
-        }
-
-        .guidance-box p {
-            color: var(--muted);
-            font-size: 17px;
-        }
-
-        .guidance-highlight {
-            display: inline-block;
-            background: var(--white);
-            border-radius: 12px;
-            padding: 18px 25px;
-            margin: 18px 0;
-            color: var(--green);
-            font-weight: 800;
-            font-size: 19px;
-        }
-
-        .small-note {
-            font-size: 13px !important;
-        }
-
-        /* Audience cards */
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 23px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 30px;
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(56, 36, 72, 0.035);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .card-icon {
-            width: 56px;
-            height: 56px;
-            display: grid;
-            place-items: center;
-            border-radius: 14px;
-            background: var(--purple-light);
-            font-size: 28px;
-        }
-
-        .card h3 {
-            color: var(--purple-dark);
-            font-size: 21px;
-            margin: 20px 0 10px;
-        }
-
-        .card p {
-            color: var(--muted);
-            font-size: 15px;
-        }
-
-        .card a {
-            display: inline-block;
-            margin-top: 8px;
-            color: var(--green);
-            font-weight: 800;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        /* Resources */
-
-        .resources {
-            background: #faf7fb;
-        }
-
-        .resource-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 35px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 35px;
-        }
-
-        .resource-box h3 {
-            color: var(--purple-dark);
-            font-size: 25px;
-            margin-top: 0;
-        }
-
-        .resource-box p {
-            color: var(--muted);
-            margin-bottom: 0;
-        }
-
-        /* Contact */
-
-        .contact {
-            background: var(--purple-dark);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: clamp(30px, 4vw, 42px);
-            line-height: 1.25;
-            margin: 0 0 18px;
-        }
-
-        .contact p {
-            color: #e4dbe9;
-            max-width: 650px;
-            margin: 0 auto 25px;
-        }
-
-        .contact .button {
-            background: var(--white);
-            color: var(--purple-dark);
-        }
-
-        .contact .button:hover {
-            background: var(--green-light);
-        }
-
-        /* Footer */
-
-        footer {
-            background: #2b1b36;
-            color: #e4dbe9;
-            padding: 35px 0;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .footer-brand {
-            color: var(--white);
-            font-weight: 800;
-            font-size: 20px;
-        }
-
-        footer p {
-            margin: 6px 0;
-            font-size: 13px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-        }
-
-        .footer-links a {
-            color: #e4dbe9;
-            font-size: 13px;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-            text-decoration: underline;
-        }
-
-        /* Mobile layout */
-
-        @media (max-width: 850px) {
-            .header-inner {
-                padding: 15px 0;
-                flex-direction: column;
-            }
-
-            nav {
-                justify-content: center;
-                gap: 13px 18px;
-            }
-
-            .hero {
-                padding: 60px 0;
-            }
-
-            .hero-grid,
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .hero-art {
-                min-height: 290px;
-            }
-
-            .art-circle {
-                width: 280px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .resource-box {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .brand-name {
-                font-size: 22px;
-            }
-
-            nav a {
-                font-size: 13px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .about-panel {
-                padding: 25px;
-            }
-
-            .note-one {
-                right: -5px;
-            }
-
-            .note-two {
-                left: -5px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBF India | Exclusive breastfeeding awareness and education</title>
+<meta name="description" content="EBF India is an independent awareness and education initiative that shares reliable, evidence-based information on exclusive breastfeeding with mothers, families and health professionals in India.">
+<meta name="theme-color" content="#56366f">
+<meta name="google-site-verification" content="00iB3hO5v20pXJK-vjupicv55-AOeBCLlXGrPpFwtRs">
+<link rel="canonical" href="https://www.ebfindia.org/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EBF India | Exclusive breastfeeding awareness and education">
+<meta property="og:description" content="Reliable, evidence-based information on exclusive breastfeeding for mothers, families and health professionals in India.">
+<meta property="og:url" content="https://www.ebfindia.org/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2356366F'/%3E%3Cpath d='M9 18a7 7 0 0 0 14 0' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='12' r='3' fill='%23E3A02F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"EBF India","url":"https://www.ebfindia.org/","email":"missionebfindia@gmail.com","telephone":"+919359385667","description":"Awareness and education initiative on exclusive breastfeeding in India."}
+</script>
 </head>
-
 <body>
-
-    <!-- Header -->
-    <header>
-        <div class="container header-inner">
-
-            <a class="brand" href="#home" aria-label="EBF India home">
-                <span class="brand-icon" aria-hidden="true">♡</span>
-                <span>
-                    <span class="brand-name">EBF India</span>
-                    <span class="brand-tagline">KNOWLEDGE · SUPPORT · AWARENESS</span>
-                </span>
-            </a>
-
-            <nav aria-label="Main navigation">
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#guidance">Breastfeeding</a>
-                <a href="#support">Who We Support</a>
-                <a href="#resources">Resources</a>
-                <a href="#contact" class="nav-button">Contact Us</a>
-            </nav>
-
-        </div>
-    </header>
-
-    <main>
-
-        <!-- Hero -->
-        <section class="hero" id="home">
-            <div class="container hero-grid">
-
-                <div>
-                    <span class="eyebrow">Supporting mothers and babies</span>
-
-                    <h1>
-                        A healthier beginning starts with
-                        <span style="color: var(--green);">
-                            breastfeeding.
-                        </span>
-                    </h1>
-
-                    <p>
-                        EBF India is dedicated to promoting awareness,
-                        education and support for exclusive breastfeeding
-                        across India, helping families access reliable
-                        information for a healthier start in life.
-                    </p>
-
-                    <div class="button-row">
-                        <a class="button" href="#guidance">
-                            Learn About Breastfeeding →
-                        </a>
-
-                        <a class="button button-outline" href="#about">
-                            Discover EBF India
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero-art" aria-label="Illustration representing care and support">
-                    <div class="art-circle">
-                        <div class="art-inner">
-                            <div>
-                                <div class="art-symbol" aria-hidden="true">♡</div>
-                                <div class="art-caption">
-                                    Care begins here
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="floating-note note-one">
-                            Every mother matters
-                        </div>
-
-                        <div class="floating-note note-two">
-                            Every baby deserves support
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- About -->
-        <section id="about">
-            <div class="container about-grid">
-
-                <div class="about-panel">
-                    <div class="big-symbol" aria-hidden="true">🌿</div>
-
-                    <h3>
-                        Knowledge empowers families.
-                        Support strengthens communities.
-                    </h3>
-
-                    <p>
-                        Breastfeeding support begins with compassionate
-                        care, accessible information and respect for every
-                        mother's circumstances.
-                    </p>
-                </div>
-
-                <div class="about-copy">
-                    <span class="eyebrow">About EBF India</span>
-
-                    <h2>
-                        Working towards better beginnings for every baby
-                    </h2>
-
-                    <p>
-                        EBF India aims to promote understanding of
-                        exclusive breastfeeding and make trustworthy
-                        educational information more accessible to
-                        mothers, families and communities.
-                    </p>
-
-                    <ul class="check-list">
-                        <li>Promoting breastfeeding awareness</li>
-                        <li>Sharing reliable educational information</li>
-                        <li>Encouraging family and community support</li>
-                        <li>Connecting people with useful resources</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Breastfeeding guidance -->
-        <section class="guidance" id="guidance">
-            <div class="container guidance-box">
-
-                <span class="eyebrow">Understanding the basics</span>
-
-                <h2>
-                    What is exclusive breastfeeding?
-                </h2>
-
-                <p>
-                    Exclusive breastfeeding means feeding an infant
-                    breast milk only, without other foods or liquids,
-                    including water, except for oral rehydration solution
-                    or drops and syrups containing vitamins, minerals
-                    or medicines when needed.
-                </p>
-
-                <div class="guidance-highlight">
-                    Recommended for the first 6 months of life
-                </div>
-
-                <p>
-                    The World Health Organization recommends exclusive
-                    breastfeeding for the first six months, followed
-                    by the introduction of appropriate complementary
-                    foods while continuing breastfeeding up to two
-                    years or beyond.
-                </p>
-
-                <p class="small-note">
-                    Every family's circumstances are different.
-                    Mothers who have questions about feeding, medicines,
-                    milk supply or their baby's health should seek
-                    guidance from a qualified healthcare professional.
-                </p>
-
-            </div>
-        </section>
-
-        <!-- Who we support -->
-        <section id="support">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="eyebrow">Together, we can help</span>
-
-                    <h2>
-                        Support for every part of the journey
-                    </h2>
-
-                    <p>
-                        Reliable information and compassionate support
-                        can help mothers, families and healthcare
-                        professionals make informed decisions.
-                    </p>
-                </div>
-
-                <div class="cards">
-
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">♡</div>
-
-                        <h3>For Mothers</h3>
-
-                        <p>
-                            Explore educational information about
-                            breastfeeding, common questions and where
-                            to seek professional support.
-                        </p>
-
-                        <a href="#resources">
-                            Explore information →
-                        </a>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">⌂</div>
-
-                        <h3>For Families</h3>
-
-                        <p>
-                            Learn how partners, relatives and caregivers
-                            can help create a supportive environment
-                            for breastfeeding mothers.
-                        </p>
-
-                        <a href="#resources">
-                            Discover resources →
-                        </a>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">✚</div>
-
-                        <h3>For Health Professionals</h3>
-
-                        <p>
-                            Find trusted guidance and educational
-                            resources to support breastfeeding
-                            awareness and informed care.
-                        </p>
-
-                        <a href="#resources">
-                            View learning resources →
-                        </a>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Resources -->
-        <section class="resources" id="resources">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="eyebrow">Learn and explore</span>
-
-                    <h2>
-                        Breastfeeding knowledge you can trust
-                    </h2>
-
-                    <p>
-                        Start with established public-health sources
-                        for evidence-based breastfeeding information.
-                    </p>
-                </div>
-
-                <div class="resource-box">
-                    <div>
-                        <h3>
-                            World Health Organization
-                        </h3>
-
-                        <p>
-                            Read international recommendations and
-                            guidance on infant and young child feeding.
-                        </p>
-                    </div>
-
-                    <a class="button"
-                       href="https://www.who.int/health-topics/breastfeeding"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Visit WHO →
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Contact -->
-<section class="contact" id="contact">
-    <div class="container">
-
-        <h2>Every family deserves support.</h2>
-
-        <p>
-            We believe that awareness, education and collaboration
-            can help build stronger support for breastfeeding
-            mothers and babies throughout India.
-        </p>
-
-        <h3>Contact EBF India</h3>
-
-        <p>
-            For enquiries, collaboration and further information,
-            please contact us.
-        </p>
-
-        <p style="font-size: 24px; font-weight: bold;">
-            📞 <a href="tel:+919359385667"
-                  style="color: white; text-decoration: none;">
-                935 938 5667
-            </a>
-        </p>
-<p style="font-size: 18px;">
-    ✉️ <strong>Email:</strong>
-    <a href="mailto:missionebfindia@gmail.com"
-       style="color: white; text-decoration: none;">
-        missionebfindia@gmail.com
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="EBF India home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#56366F"/><path d="M9 18a7 7 0 0 0 14 0" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="12" r="3" fill="#E3A02F"/></svg>
+      <span><b>EBF India</b><small>Exclusive breastfeeding awareness</small></span>
     </a>
-</p>
-        <p>We welcome your enquiries and collaboration opportunities.</p>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html" class="btn">Contact us</a>
+    </nav>
+  </div>
+</header>
 
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tag">Independent awareness and education initiative</span>
+        <h1>Reliable information for the first six months and beyond.</h1>
+        <p class="lede">EBF India helps mothers, families and health professionals find clear, evidence-based information on exclusive breastfeeding, and points them to trusted sources of support across India.</p>
+        <div class="actions">
+          <a class="btn" href="resources.html">Find trusted resources</a>
+          <a class="btn ghost" href="about.html">About EBF India</a>
+        </div>
+      </div>
+      <figure class="timeline">
+        <figcaption>What the World Health Organization recommends</figcaption>
+        <div class="tl-bar" role="img" aria-label="Timeline drawn to scale: breast milk only for the first 6 months, then breastfeeding continues with other foods added up to 2 years or beyond.">
+          <div class="tl-seg tl-exclusive">Breast milk only</div>
+          <div class="tl-seg tl-continued">Breastfeeding continues, with other foods added</div>
+        </div>
+        <div class="tl-scale" aria-hidden="true"><span>Birth</span><span>6 months</span><span>2 years or beyond</span></div>
+        <p class="src">Source: <a href="https://www.who.int/health-topics/breastfeeding">WHO, Breastfeeding</a></p>
+      </figure>
     </div>
-</section>
+  </section>
+
+  <section id="basics">
+    <div class="wrap split">
+      <div>
+        <h2>What is exclusive breastfeeding?</h2>
+        <p>Exclusive breastfeeding means the baby receives breast milk only. WHO recommends it for the first six months of life, then adding appropriate complementary foods while breastfeeding continues up to two years or beyond.</p>
+        <p class="note">Every family's situation is different. If you have questions about feeding, medicines, milk supply or your baby's health, please speak with a qualified doctor, nurse or lactation professional.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>In the first six months</dt><dd>Breast milk only. No other milk, food or water.</dd></div>
+        <div><dt>When medically needed</dt><dd>Oral rehydration solution, and vitamin, mineral or medicine drops and syrups, are still compatible with exclusive breastfeeding.</dd></div>
+        <div><dt>From six months</dt><dd>Appropriate complementary foods are introduced, and breastfeeding continues.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section style="background:var(--white);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <h2>Support for every part of the journey</h2>
+      <p>Choose the section that fits you. Each one leads to vetted guidance from established public-health organisations.</p>
+      <div class="cols3" style="margin-top:2.2rem">
+        <div class="col">
+          <h3>For mothers</h3>
+          <p>Understand the basics, common questions, and where to get professional help with feeding.</p>
+          <a class="more" href="resources.html#mothers">Resources for mothers</a>
+        </div>
+        <div class="col">
+          <h3>For families</h3>
+          <p>Learn how partners, grandparents and caregivers can create a supportive home for a breastfeeding mother.</p>
+          <a class="more" href="resources.html#families">Resources for families</a>
+        </div>
+        <div class="col">
+          <h3>For health professionals</h3>
+          <p>Find guidelines and learning material to support informed, consistent breastfeeding counselling.</p>
+          <a class="more" href="resources.html#professionals">Resources for professionals</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>What EBF India does</h2>
+      <p>We are an awareness and education initiative. Our work is to make good information easier to find and easier to understand.</p>
+      <ul class="do-list">
+        <li><b>Share reliable information</b>Plain-language summaries linked to WHO, UNICEF and Indian health authorities.</li>
+        <li><b>Encourage family support</b>Help partners and relatives understand how they can help.</li>
+        <li><b>Connect people with resources</b>Point to trusted organisations and professional care.</li>
+        <li><b>Promote awareness in communities</b>Work with partners to bring accurate information to more families.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <h2>Work with us</h2>
+        <p>We welcome questions, suggestions and conversations with health professionals, educators and organisations who share this goal.</p>
+      </div>
+      <div>
+        <p>Write to <a href="mailto:missionebfindia@gmail.com">missionebfindia@gmail.com</a> or call <a href="tel:+919359385667">+91 93593 85667</a>.</p>
+        <div class="actions" style="margin-top:1rem"><a class="btn" href="contact.html">Contact us</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>EBF India</h3>
+        <p>An independent awareness and education initiative on exclusive breastfeeding in India. Registration in progress.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul><li><a href="mailto:missionebfindia@gmail.com">missionebfindia@gmail.com</a></li><li><a href="tel:+919359385667">+91 93593 85667</a></li></ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p><b>Medical disclaimer.</b> The information on this website is for general education and is not medical advice. For personal guidance on feeding, medicines, milk supply or your baby's health, consult a qualified healthcare professional.</p>
+      <p><b>Independence.</b> EBF India does not promote infant milk substitutes, feeding bottles, teats or any commercial products.</p>
+      <p>&copy; 2026 EBF India. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
